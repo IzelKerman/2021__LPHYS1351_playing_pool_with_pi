@@ -65,6 +65,12 @@ class System:
 
 
 def plot_collision_domain(x_0, ax, domain, N, z_domain=None, log=False, to_print="coucou"):
+    """
+    x_0 : 1d array with the initial position of each ball.     ex: x_0 = [1, 2, 3] ; first ball at x = 1, second at y = 2, third at z = 3
+    ax : an ax from matplotlib.
+    domain : 2d array representing the domain of the plot.     ex: [[0, 1], [2, 3]] will give a plot for log(m_2/m_1) in [0, 1] and log(m_3/m_1) in [2, 3]
+    N : 1d array the number of point on wich we compute the number of collisions.
+    """
     x = np.array([10 ** (((N[0] - i) * domain[0][0] + i * domain[0][1]) / N[0]) for i in range(0, N[0] + 1)])
     y = np.array([10 ** (((N[1] - i) * domain[1][0] + i * domain[1][1]) / N[1]) for i in range(0, N[1] + 1)])
     X, Y = np.meshgrid(x, y)
