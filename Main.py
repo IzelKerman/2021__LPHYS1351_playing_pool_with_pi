@@ -31,7 +31,7 @@ class System:
             dt_c = (self.x[1] - self.x[2]) / (self.v[2] - self.v[1])
         else:
             dt_c = math.inf
-        if abs(dt_a - dt_b) < 1e-16 or abs(dt_a - dt_c) < 1e-16:
+        if abs(dt_a - dt_b) < 1e-16 and abs(dt_a - dt_c) < 1e-16:
             print("woops, triple collision occured")
             return [0, 0, 0], [0, 0, 0]  # error, triple collision, can't compute the velocities
         elif abs(dt_a - dt_c) < 1e-16 and dt_c < dt_a:
